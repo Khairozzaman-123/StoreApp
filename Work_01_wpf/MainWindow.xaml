@@ -1,0 +1,59 @@
+﻿<Window x:Class="Work_01_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:work_01_wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="632" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="598*"/>
+        </Grid.RowDefinitions>
+        <Canvas HorizontalAlignment="Left" Width="790" Height="615" VerticalAlignment="Top" Margin="0,0,0,-14" Grid.RowSpan="2" Background="#FF5D8EBF">
+            <TextBlock Canvas.Left="37" TextWrapping="Wrap" Text="ID :" Canvas.Top="45" Width="163" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFF3EFEF"/>
+            <TextBox x:Name="txtId" Height="28" Canvas.Left="213" TextWrapping="Wrap" Canvas.Top="47" Width="235" FontSize="18" FontFamily="Century Gothic"/>
+            <TextBlock Canvas.Left="37" TextWrapping="Wrap" Text="Title :" Canvas.Top="86" Width="163" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFF3EFEF"/>
+            <ComboBox x:Name="cmbTitle" Canvas.Left="213" Canvas.Top="90" Width="235" FontSize="18" FontFamily="Century Gothic"/>
+            <TextBlock Canvas.Left="37" TextWrapping="Wrap" Text="First Name :" Canvas.Top="136" Width="170" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFF3EFEF"/>
+            <TextBox x:Name="txtFirstName" Height="28" Canvas.Left="213" TextWrapping="Wrap" Canvas.Top="135" Width="235" FontSize="18" FontFamily="Century Gothic"/>
+            <TextBlock Canvas.Left="37" TextWrapping="Wrap" Text="Last Name :" Canvas.Top="181" Width="170" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFF3EFEF"/>
+            <TextBox x:Name="txtLastName" Height="28" Canvas.Left="213" TextWrapping="Wrap" Canvas.Top="181" Width="235" FontSize="18" FontFamily="Century Gothic"/>
+            <TextBlock Canvas.Left="37" TextWrapping="Wrap" Text="Email :" Canvas.Top="225" Width="170" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFF3EFEF"/>
+            <TextBox x:Name="txtEmail" Height="28" Canvas.Left="213" TextWrapping="Wrap" Canvas.Top="225" Width="235" FontSize="18" FontFamily="Century Gothic"/>
+            <TextBlock Canvas.Left="37" TextWrapping="Wrap" Text="Contact No :" Canvas.Top="266" Width="170" FontSize="18" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFF3EFEF"/>
+            <TextBox x:Name="txtContactNo" Height="28" Canvas.Left="213" TextWrapping="Wrap" Canvas.Top="265" Width="235" FontSize="18" FontFamily="Century Gothic"/>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" FontFamily="Century Gothic" FontSize="18" Height="48" Canvas.Left="485" Canvas.Top="68" Click="BtnSave_Click" FontWeight="Bold" Background="#FF1FB618"/>
+            <Button x:Name="btnShowAll" Content="Show All" Canvas.Left="482" Canvas.Top="204" Width="90" Height="42" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Click="BtnShowAll_Click" Background="#FF24DC56"/>
+            <ListView Name="lstFeculty" Height="163" Canvas.Left="20" Canvas.Top="372" Width="740" Background="#FF499745" Foreground="White" BorderBrush="#FF4D8D43">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="60" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Title" Width="40" DisplayMemberBinding="{Binding Title}"/>
+                        <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="Last Name" Width="120" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Email" Width="120" DisplayMemberBinding="{Binding Email}"/>
+                        <GridViewColumn Header="Contact No" Width="100" DisplayMemberBinding="{Binding Contact}"/>
+                        <GridViewColumn Header="Update">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Update" Name="Update" Click="Update_Click" CommandParameter="{Binding}"></Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Delete">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" Name="Delete" Click="Delete_Click" CommandParameter="{Binding}"></Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="btnUpdate" Content="Update" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" FontFamily="Century Gothic" FontSize="18" Height="48" Canvas.Left="486" Canvas.Top="133" Click="BtnUpdate_Click" FontWeight="Bold" Background="#FF2EA41B"/>
+            <Button x:Name="btnreferish" Content="Refresh" Canvas.Left="482" Canvas.Top="254" Width="90" Height="42" FontFamily="Century Gothic" FontSize="18" FontWeight="Bold" Click="btnreferish_Click" Background="#FF24DC88"/>
+        </Canvas>
+    </Grid>
+</Window>
